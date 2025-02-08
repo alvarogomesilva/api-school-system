@@ -16,5 +16,11 @@
     "url": "https://github.com/alvarogomesilva/api-school-system/issues"
   },
   "homepage": "https://github.com/alvarogomesilva/api-school-system#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0"
+  }
 }

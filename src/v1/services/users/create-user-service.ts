@@ -5,10 +5,14 @@ import { HttpException } from "../../helpers/HttpException";
 
 export class CreateUserService {
     async execute(data: CreateUserDTO) {
-        const { name, password, role, isActive } = data
+        const { name, email, password, role, isActive } = data
 
         if (!name) {
             throw new HttpException('name is required', 400)
+        }
+
+        if (!email) {
+            throw new HttpException('email is required', 400)
         }
 
         if(!password) {
@@ -19,7 +23,7 @@ export class CreateUserService {
         
         try {
             const user = await prismaClient.user.create({
-                data: { name, password: passwordHash, role, isActive },
+                data: { name, email, password: passwordHash, role, isActive },
                 select: { id: true }
             })
             return user

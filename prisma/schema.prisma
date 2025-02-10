@@ -15,24 +15,31 @@ enum Role {
 }
 
 model User {
-  id       String  @id @default(uuid())
-  name     String
-  password String
-  role     Role?    @default(ALUNO)
-  isActive Boolean
-  createdAt DateTime?  @default(now())
+  id        String    @id @default(uuid())
+  name      String
+  email     String
+  password  String
+  role      Role?     @default(ALUNO)
+  isActive  Boolean
+  
+  createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt()
 
   @@map("users")
 }
 
-// model Class {
-//   id        String   @id @default(uuid())
-//   name      String
-//   year      Int
-//   teacherId String // Professor responsável
-//   students  String[] // Lista de IDs dos alunos
-// }
+model Class {
+  id        String   @id @default(uuid())
+  name      String
+  year      Int
+  teacherId String // Professor responsável
+  students  String[] // Lista de IDs dos alunos
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt()
+
+  @@map("classes")
+}
 
 // model Grade {
 //   id        String @id

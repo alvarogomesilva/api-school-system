@@ -5,11 +5,11 @@ import { CreateUserService } from "../../services/users/create-user-service";
 export class CreateUserController {
 
     async handle(request: Request, response: Response) {
-        const { name, password, role, isActive } = request.body
+        const { name, email, password, role, isActive } = request.body
 
         try {
             const createUserService = new CreateUserService()
-            const userCreated = await createUserService.execute({ name, password, role, isActive })
+            const userCreated = await createUserService.execute({ name, email, password, role, isActive })
 
             response.status(201).json(userCreated)
         } catch (error: any) {

@@ -6,11 +6,11 @@ export class UpdateUserController {
     async handle(request: Request, response: Response) {
         const id = request.params.id as string
 
-        const { name, role, isActive } = request.body
+        const { name, email, role, isActive } = request.body
 
         try {
             const updateUserService = new UpdateUserService()
-            const updateUser = await updateUserService.execute({ id, name, role, isActive })
+            const updateUser = await updateUserService.execute({ id, email, name, role, isActive })
             response.status(200).json(updateUser)
             
         } catch (error: any) {

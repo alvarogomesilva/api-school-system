@@ -5,7 +5,7 @@ import { HttpException } from "../../helpers/HttpException";
 export class UpdateUserService {
 
     async execute(data: UpdateUserDTO) {
-        const { id, name, role, isActive } = data;
+        const { id, name, email, role, isActive } = data;
 
         if (!id) {
             throw new HttpException('user is required', 400)
@@ -13,11 +13,12 @@ export class UpdateUserService {
 
         try {
             const user = await prismaClient.user.update({
-                data: { name, role, isActive },
+                data: { name, email, role, isActive },
                 where: { id },
                 select: { 
                     id: true,
                     name: true,
+                    email: true,
                     role: true,
                     isActive: true,
                     createdAt: true,

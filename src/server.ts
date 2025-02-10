@@ -1,9 +1,9 @@
-import express from 'express'
+import express, { json } from 'express'
 import { usersRoutes } from './v1/routes/users.routes'
 
 
 const app = express()
-
+app.use(json())
 app.use(usersRoutes)
 
 const PORT = process.env.PORT || 3000

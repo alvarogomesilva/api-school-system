@@ -27,10 +27,10 @@ export class AuthUserService {
             throw new HttpException('email/password incorret', 401)
         }
 
-        const token = sign({ 
+        const token = sign({
             userId: userExists.id,
-            email: userExists.email
-         }, process.env.JWT_SECRET as string, { subject: userExists.id, expiresIn: '1d' })
+            role: userExists.role
+        }, process.env.JWT_SECRET as string, { subject: userExists.id, expiresIn: '1d' })
 
         return { access_token: token };
     }

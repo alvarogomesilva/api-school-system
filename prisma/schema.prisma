@@ -15,13 +15,13 @@ enum Role {
 }
 
 model User {
-  id        String    @id @default(uuid())
-  name      String
-  email     String
-  password  String
-  role      Role?     @default(ALUNO)
-  isActive  Boolean
-  
+  id       String  @id @default(uuid())
+  name     String
+  email    String
+  password String
+  role     Role?   @default(ALUNO)
+  isActive Boolean
+
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt()
 
@@ -41,13 +41,18 @@ model Class {
   @@map("classes")
 }
 
-// model Grade {
-//   id        String @id
-//   studentId String
-//   classId   String
-//   subject   String
-//   grade     Int // Nota do aluno
-// }
+model Grade {
+  id        String @id @default(uuid())
+  studentId String
+  classId   String
+  subject   String
+  grade     Int // Nota do aluno
+
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt()
+
+  @@map("grades")
+}
 
 // model Attendance {
 //   id        String @id

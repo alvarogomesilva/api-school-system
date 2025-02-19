@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-    <b>Simple description of what your project do or how to use it.</b>
+    <b>Uma API REST para cadastro e gerenciamento de notas escolares, com autenticação e autorização.</b>
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>
